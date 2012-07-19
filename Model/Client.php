@@ -127,6 +127,10 @@ class Client extends OAuthAppModel {
 
 		$this->addClientSecret = $this->newClientSecret();
 		$this->data['Client']['client_secret'] = $this->addClientSecret;
+		
+		$now = gmdate('YmdHis');
+		$this->data['Client']['created'] = $now;
+		$this->data['Client']['modified'] = $now;
 
 		return $this->save($this->data);
 	}
